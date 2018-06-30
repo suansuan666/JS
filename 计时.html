@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        padding:0;
+        margin:0;
+    }
+    div{
+        background-color:pink;
+        width:200px;
+        height:200px;
+        margin:0 auto;
+        
+    }
+    h1{
+      width:60px;
+      height:50px;
+      margin:0 auto;
+      padding-top:40px;
+      color: white;
+      
+    }
+    button{
+        height:30px;
+        width:60px;
+        margin:17px 70px;
+    }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>100</h1>
+        <button>开始</button>
+    </div>
+
+    <script>
+    var aH=document.getElementsByTagName("h1")[0];
+    var aBtn=document.getElementsByTagName("button")[0];
+    var timer;
+    aBtn.onclick=function(){
+        if(aBtn.innerText=="开始")
+        {
+            aBtn.innerText="暂停";
+            timer=setInterval(function(){
+                aH.innerText--;
+            },1000)
+        }
+        else if(aBtn.innerText=="暂停")
+        { 
+            aBtn.innerText="开始";
+         clearInterval(timer)
+        }
+    }
+    </script>
+</body>
+</html>

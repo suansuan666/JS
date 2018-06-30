@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        padding:0;
+        margin:0;
+    }
+    .nav{
+        width:300px;
+        height:40px;
+        list-style: none;
+        background-color: black;
+        border-bottom:1px solid black;
+        
+    }
+    .nav li{
+        width:50px;
+        height:20px;
+        background-color:black;
+        color: white;
+        float: left;
+        padding: 10px;
+    
+    }
+    .container{
+        width:300px;
+        height:200px;
+        border: 1px solid black;
+        margin:0 auto;
+    }
+    .nav .active{
+        background-color: white;
+        color: black;
+    }
+    .content{
+        width:300px;
+        height:160px;
+    }
+    .content .active{
+        display: block;
+    }
+    .content ul{
+        display: none;
+    }
+    .content li{
+        margin-left: 23px;/*为什么出现圆点在外面？*/
+    }
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+       <ul class="nav">
+           <li class="active">第一课</li>
+           <li>第二课</li>
+           <li>第三课</li>
+       </ul>
+       <div class="content">
+            <ul class="active">
+                <li>网页特效</li>
+                <li>网页特效</li>
+                <li>网页特效</li>
+                <li>网页特效</li>
+                <li>第一页</li>
+            </ul>
+            <ul>
+                <li>第二页</li>
+                <li>改变网页背景颜色</li>
+            </ul>
+            <ul>
+                <li>第三页</li>
+                <li>JavaScript组成：ECMAScript、DOM、BOM，JavaScript兼容性来源</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+       var aUl=document.getElementsByClassName("nav")[0];
+       var aLi=aUl.getElementsByTagName("li");
+       var oDiv=document.getElementsByClassName("content")[0];
+       var oUl=oDiv.getElementsByTagName("ul");
+
+       for(var i=0;i<aLi.length;i++)
+       {
+           aLi[i].index=i;
+           aLi[i].onmouseover=function(){
+               for(var j=0;j<aLi.length;j++){
+                   aLi[j].className="";
+                   oUl[j].className="";
+               }  
+                //  aLi[i].classname="active";
+               this.className="active";
+               oUl[this.index].className="active";
+               console.log(this.index);
+           }
+       }
+    
+    </script>
+</body>
+</html>

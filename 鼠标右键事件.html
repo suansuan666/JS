@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        padding: 0;
+        margin:0;
+    }
+    ul{
+        width:100px;
+        list-style: none;
+        border: 1px solid #778899;
+        display: none;
+        position: absolute;
+    }
+    li{
+        height:30px;
+        line-height: 30px;
+        border-bottom: 1px solid #778899;
+        text-align: center;
+    }
+    li:hover{
+        background-color: #999;
+    }
+
+
+    </style>
+</head>
+<body>
+    <ul id="a">
+        <li>设置待办</li>
+        <li>设置未读</li>
+        <li>设置已读</li>
+        <li>删除右键</li>
+    </ul>
+    <script>
+    var aUl=document.getElementById("a");
+    document.oncontextmenu=function(e){
+        aUl.style.display="block";
+        aUl.style.top=e.clientY+"px";
+        aUl.style.left=e.clientX+"px";
+        return false;
+        console.log(aUl.top,aUl.left);
+      //  e.preventDefault();
+    }
+
+    var aLi=document.getElementsByTagName("li");
+    for(var i=0;i<aLi.length;i++){
+       aLi[i].index=i;
+       aLi[i].onclick=function(){
+           for(var j=0;j<aLi.length;j++){
+               aLi[j].className="";
+           }
+           console.log(this.innerHTML);
+       }
+    }
+
+    </script>
+</body>
+</html>
